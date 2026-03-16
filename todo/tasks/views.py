@@ -13,6 +13,17 @@ def task_list(request):
 
     return render(request, "tasks/list.html", {"tasks": tasks})
 
+def update_task(request, id):
+
+    task = Task.objects.get(id=id)
+
+    if request.method == "POST":
+        title = request.POST.get("title")
+        task.title = title
+        task.save()
+        return redirect("/")
+
+    return render(request, "tasks/update.html", {"task": task})
 
 def delete_task(request, id):
     task = Task.objects.get(id=id)
