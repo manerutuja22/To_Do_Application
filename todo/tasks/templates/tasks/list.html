@@ -2,8 +2,11 @@
 
 {% block content %}
 
-<h2 class="text-center mb-4">My Todo List</h2>
+<h2 class="text-center mb-4 fw-bold text-primary">
+My Todo List
+</h2>
 
+<!-- ADD TASK FORM -->
 <form method="POST" class="d-flex gap-2 mb-4">
 
 {% csrf_token %}
@@ -16,10 +19,9 @@ placeholder="Enter new task"
 required
 >
 
-<button class="btn btn-primary">
+<button class="btn btn-success">
 Add Task
 </button>
-
 </form>
 
 <ul class="list-group">
@@ -28,15 +30,21 @@ Add Task
 
 <li class="list-group-item mb-3">
 
-{% if task.completed %}
-<h5 class="text-muted text-decoration-line-through">
-{{ task.title }}
-</h5>
-{% else %}
 <h5>
+
 {{ task.title }}
-</h5>
+
+{% if task.completed %}
+<span class="badge bg-success">Completed</span>
+{% else %}
+<span class="badge bg-warning text-dark">Pending</span>
 {% endif %}
+
+</h5>
+
+<small class="text-muted">
+Created: {{ task.created_at }}
+</small>
 
 <div class="mt-2">
 
@@ -57,6 +65,12 @@ Delete
 </div>
 
 </li>
+
+{% empty %}
+
+<div class="alert alert-info text-center">
+No tasks yet. Add your first task 🚀
+</div>
 
 {% endfor %}
 
