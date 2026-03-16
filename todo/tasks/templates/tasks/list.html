@@ -18,3 +18,29 @@
     </li>
 {% endfor %}
 </ul>
+<ul>
+{% for task in tasks %}
+    <li>
+        {{ task.title }}
+
+        <a href="/delete/{{ task.id }}">Delete</a>
+
+    </li>
+{% endfor %}
+</ul>
+<ul>
+{% for task in tasks %}
+    <li>
+
+        {% if task.completed %}
+            <s>{{ task.title }}</s>
+        {% else %}
+            {{ task.title }}
+        {% endif %}
+
+        <a href="/complete/{{ task.id }}">Complete</a>
+        <a href="/delete/{{ task.id }}">Delete</a>
+
+    </li>
+{% endfor %}
+</ul>
