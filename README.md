@@ -148,7 +148,7 @@ Delete Task
 
 👨‍💻 Author
 
-Rutuja
+Rutuja Mane
 
 📄 License
 
