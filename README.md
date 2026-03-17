@@ -126,7 +126,17 @@ This prevents unauthorized form submissions and ensures secure requests.
 
 📸 Screenshots
 
-(Add screenshots here for better presentation)
+Home Page
+![Home](screenshots/homepage.png)
+
+Task States
+![States](screenshots/task_states.png)
+
+Update Task
+![Update](screenshots/update.png)
+
+Delete Task
+![Delete](screenshots/delete.png)
 
 📌 Future Improvements
 
